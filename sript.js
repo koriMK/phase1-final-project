@@ -174,3 +174,18 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                 elements.searchResults.classList.add('active');
             }
         }
+        async function toggleFavorite(event) {
+            const button = event.currentTarget;
+            const city = button.getAttribute('data-city');
+            button.classList.toggle('active');
+            const isFavorite = button.classList.contains('active');
+            if (isFavorite) {
+                if (!currentUser.favorites.includes(city)) {
+                    currentUser.favorites.push(city);
+                }
+            } else {
+                currentUser.favorites = currentUser.favorites.filter(fav => fav !== city);
+            }
+            await updateUserData();
+            loadWeatherCards();
+        }
