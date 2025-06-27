@@ -49,3 +49,28 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                 console.error("Error updating user data:", error);
             }
         }
+         async function getWeatherData(cityName) {
+            try {
+                const url = `${WEATHER_API_URL}?q=${cityName}&appid=${WEATHER_API_KEY}`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`Weather data not found for ${cityName}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                throw error;
+            }
+        }
+        async function loadWeatherCards() {
+            elements.weatherCards.innerHTML = '';
+            for (const city of currentUser.favorites) {
+                try {
+                    const weather = await getWeatherData(city);
+                    createWeatherCard(weather, true);
+                } catch (error) {
+                    console.error(`Error loading ${city} weather:`, error);
+                }
+            }
