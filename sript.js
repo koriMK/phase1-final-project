@@ -16,3 +16,36 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
             name: "Tiki",
             favorites: []
         };
+        async function initApp() {
+           
+            await loadUserData();
+            
+            
+            loadWeatherCards();
+            
+            
+            setupEventListeners();
+        }
+        async function loadUserData() {
+            try {
+                const response = await fetch(`${DB_API_URL}/users/${currentUser.id}`);
+                const userData = await response.json();
+                currentUser = userData;
+                console.log("User data loaded:", currentUser);
+            } catch (error) {
+                console.error("Error loading user data:", error);
+                currentUser.favorites = ['New York', 'London'];
+            }
+        }
+        async function updateUserData() {
+            try {
+                await fetch(`${DB_API_URL}/users/${currentUser.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(currentUser)
+                });
+                console.log("User data updated successfully");
+            } catch (error) {
+                console.error("Error updating user data:", error);
+            }
+        }
