@@ -1,0 +1,22 @@
+{
+  "favorites": [
+    {
+      "id": 1,
+      "city": "New York",
+      "country": "US",
+      "createdAt": "2023-07-20T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "city": "London",
+      "country": "GB",
+      "createdAt": "2023-07-20T12:05:00Z"
+    },
+    {
+      "id": 3,
+      "city": "Tokyo",
+      "country": "JP",
+      "createdAt": "2023-07-20T12:10:00Z"
+    }
+  ]
+}
