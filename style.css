@@ -1,0 +1,170 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1e88e5;
+            --secondary: #0d47a1;
+            --accent: #ff9800;
+            --light: #f5f9ff;
+            --dark: #1a237e;
+            --text: #2c3e50;
+            --gray: #7f8c8d;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --danger: #F44336;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+        
+        body {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--text);
+            line-height: 1.6;
+        }
+         nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        nav h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-links li a:hover {
+            background: rgba(30, 136, 229, 0.1);
+            color: var(--primary);
+        }
+        
+        .nav-links li a i {
+            font-size: 1.1rem;
+        }
+        
+        .search-container {
+            display: flex;
+            margin: 0 20px;
+            background: rgba(236, 240, 241, 0.7);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(149, 165, 166, 0.3);
+            transition: all 0.3s ease;
+            width: 300px;
+        }
+        
+        .search-container:focus-within {
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .search-input {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 0.95rem;
+            outline: none;
+            color: var(--text);
+        }
+        
+        .search-button {
+            padding: 0 18px;
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            color: var(--primary);
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-icon {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .username {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .logout-button {
+            padding: 8px 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .logout-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 21 9, 0.4);
+        }
