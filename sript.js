@@ -211,3 +211,7 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                 alert('Logout functionality would go here!');
             });
         }
+         function kelvinToCelsius(kelvin) {
+            return Math.round(kelvin - 273.15);
+        }
+        document.addEventListener('DOMContentLoaded', initApp);
