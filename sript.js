@@ -114,3 +114,48 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                     </div>
                 </div>
             `;
+            elements.weatherCards.appendChild(card);
+            const favBtn = card.querySelector('.favorite-btn');
+            favBtn.addEventListener('click', toggleFavorite);
+        }
+        async function displaySearchResults(cityName) {
+            try {
+                const weatherData = await getWeatherData(cityName);
+                const isFavorite = currentUser.favorites.includes(cityName);
+                
+                elements.searchResults.innerHTML = `
+                    <div class="weather-card">
+                        <button class="favorite-btn ${isFavorite ? 'active' : ''}" 
+                                data-city="${weatherData.name}">
+                            <i class="fas fa-star"></i>
+                        </button>
+                        <h3>
+                            <i class="fas fa-location-dot"></i> 
+                            ${weatherData.name}, ${weatherData.sys.country}
+                        </h3>
+                        <div class="temp">${kelvinToCelsius(weatherData.main.temp)}°C</div>
+                        <div>
+                            <img src="https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png" 
+                                 alt="${weatherData.weather[0].description}">
+                            ${weatherData.weather[0].description}
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail">
+                                <div class="detail-value">${weatherData.main.humidity}%</div>
+                                <div class="detail-label">Humidity</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-value">${weatherData.wind.speed} m/s</div>
+                                <div class="detail-label">Wind</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-value">${weatherData.main.pressure} hPa</div>
+                                <div class="detail-label">Pressure</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-value">${kelvinToCelsius(weatherData.main.feels_like)}°C</div>
+                                <div class="detail-label">Feels Like</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
