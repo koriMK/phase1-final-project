@@ -74,3 +74,14 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                     console.error(`Error loading ${city} weather:`, error);
                 }
             }
+            for (const city of defaultCities) {
+                if (!currentUser.favorites.includes(city)) {
+                    try {
+                        const weather = await getWeatherData(city);
+                        createWeatherCard(weather, false);
+                    } catch (error) {
+                        console.error(`Error loading ${city} weather:`, error);
+                    }
+                }
+            }
+        }
