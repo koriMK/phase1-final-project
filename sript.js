@@ -159,3 +159,18 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
                         </div>
                     </div>
                 `;
+                 elements.searchResults.classList.add('active');
+                const favBtn = elements.searchResults.querySelector('.favorite-btn');
+                favBtn.addEventListener('click', toggleFavorite);
+                
+            } catch (error) {
+                elements.searchResults.innerHTML = `
+                    <div class="weather-card" style="background: linear-gradient(135deg, #ff6b6b, #ff8e8e);">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Location Not Found</h3>
+                        <p>We couldn't find weather information for "${cityName}".</p>
+                        <p>Please try another location.</p>
+                    </div>
+                `;
+                elements.searchResults.classList.add('active');
+            }
+        }
