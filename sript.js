@@ -189,3 +189,25 @@ const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
             await updateUserData();
             loadWeatherCards();
         }
+        function handleSearch() {
+            const location = elements.searchInput.value.trim();
+            
+            if (!location) {
+                alert('Please enter a location');
+                return;
+            }
+            
+            displaySearchResults(location);
+        }
+        
+        function setupEventListeners() {
+        
+            elements.searchBtn.addEventListener('click', handleSearch);
+            
+            elements.searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSearch();
+            });
+            elements.logoutBtn.addEventListener('click', () => {
+                alert('Logout functionality would go here!');
+            });
+        }
