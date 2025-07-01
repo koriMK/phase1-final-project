@@ -1,6 +1,6 @@
 const WEATHER_API_KEY = '5f472b7acba333cd8a035ea85a0d4d4c';
         const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
-        const DB_API_URL = 'http://localhost:3001/';
+        const DB_API_URL = 'http://localhost:3001';
 
         const elements = {
             searchInput: document.getElementById('locationSearch'),
